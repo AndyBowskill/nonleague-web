@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nonleague>
+	<league name="Football Conference" division="Conference National" sponsor="Sponsored by Vanarama" step="1" competitionID="5" />
+	<league name="Football Conference" division="Conference North" sponsor="Sponsored by Vanarama" step="2" competitionID="6" />
+	<league name="Football Conference" division="Conference South" sponsor="Sponsored by Vanarama" step="2" competitionID="7" />
+	<league name="Northern Premier League" division="Premier Division" sponsor="Sponsored by Evo-Stik" step="3" competitionID="14" />
+	<league name="Southern League" division="Premier Division" sponsor="Sponsored by Evo-Stik" step="3" competitionID="8" />
+	<league name="Isthmian League" division="Premier Division" sponsor="Sponsored by Ryman" step="3" competitionID="11" />
+   	<league name="Northern Premier League" division="First Division North" sponsor="Sponsored by Evo-Stik" step="4" competitionID="15" />
+    <league name="Northern Premier League" division="First Division South" sponsor="Sponsored by Evo-Stik" step="4" competitionID="16" />
+   	<league name="Southern League" division="Division One Central" sponsor="Sponsored by Evo-Stik" step="4" competitionID="9" />
+   	<league name="Southern League" division="Division One South &amp; West" sponsor="Sponsored by Evo-Stik" step="4" competitionID="10" />
+	<league name="Isthmian League" division="Division North" sponsor="Sponsored by Ryman" step="4" competitionID="12" />
+	<league name="Isthmian League" division="Division South" sponsor="Sponsored by Ryman" step="4" competitionID="13" />
+</nonleague>

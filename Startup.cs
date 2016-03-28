@@ -7,6 +7,7 @@ using Microsoft.AspNet.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using nonleague.web.Services;
 
 namespace nonleague.web
 {
@@ -28,6 +29,10 @@ namespace nonleague.web
         {
             // Add framework services.
             services.AddMvc();
+            
+            // Add application services
+            services.AddSingleton<ILeagueService, LeagueXMLService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,14 +41,17 @@ namespace nonleague.web
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-            }
+            // Todo - remove for production
+            app.UseDeveloperExceptionPage();
+
+            //if (env.IsDevelopment())
+            //{
+            //    app.UseDeveloperExceptionPage();
+            //}
+            //else
+            //{
+            //    app.UseExceptionHandler("/Home/Error");
+            //}
 
             app.UseIISPlatformHandler();
 
@@ -51,9 +59,20 @@ namespace nonleague.web
 
             app.UseMvc(routes =>
             {
+                //Default route
                 routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    name: "fixture",
+                    template: "{controller=Fixture}/{action=Index}/{id?}");
+                    
+                //League tables    
+                routes.MapRoute(
+                    name: "table",
+                    template: "{controller=Table}/{action=Index}/{id?}");
+                    
+                //About
+                routes.MapRoute(
+                    name: "about",
+                    template: "{controller=About}/{action=Index}");
             });
         }
 
