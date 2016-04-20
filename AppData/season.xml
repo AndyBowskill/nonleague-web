@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<season>
+	<month name="August 2015" ID="8" />
+	<month name="September 2015" ID="9" />
+	<month name="October 2015" ID="10" />
+	<month name="November 2015" ID="11" />
+	<month name="December 2015" ID="12" />
+	<month name="January 2016" ID="1" />
+	<month name="February 2016" ID="2" />
+	<month name="March 2016" ID="3" />
+	<month name="April 2016" ID="4" />
+	<month name="May 2016" ID="5" />
+</season>

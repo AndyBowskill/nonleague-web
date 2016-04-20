@@ -1,4 +1,4 @@
-namespace nonleague.web.Models
+namespace nonleague.web.Entites
 {
     public class League
     {

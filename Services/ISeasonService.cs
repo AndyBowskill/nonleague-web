@@ -3,9 +3,9 @@ using nonleague.web.Entities;
 
 namespace nonleague.web.Services
 {
-    public interface ILeagueService
+    public interface ISeasonService
     {
-        IEnumerable<League> GetAll();
+        IEnumerable<Month> GetSeason();
     }
     
 }

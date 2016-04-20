@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
-using nonleague.web.Models;
+using nonleague.web.Entities;
 
 namespace nonleague.web.Services
 {
@@ -10,7 +10,7 @@ namespace nonleague.web.Services
     {
         public IEnumerable<League> GetAll()
         {
-            var leagues = from element in XDocument.Load("appdata.xml").Descendants("league") select element;
+            var leagues = from element in XDocument.Load("AppData/leagues.xml").Descendants("league") select element;
             
             List<League> leagueList = new List<League>();
             
