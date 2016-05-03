@@ -3,17 +3,18 @@ using nonleague.web.Services;
 
 namespace nonleague.web.Controllers
 {
+    [Route("Fixture/[action]")]
     public class FixtureController : Controller
     {
         private readonly ILeagueService _leagueService;
-        private readonly ISeasonService _seasonService;
         
-        public FixtureController(ILeagueService leagueService, ISeasonService seasonService)
+        public FixtureController(ILeagueService leagueService)
         {
             _leagueService = leagueService;
-            _seasonService = seasonService;   
         }
         
+        [Route("")]
+        [Route("/")]
         public IActionResult Index()
         {
             var model = _leagueService.GetAll(); 
@@ -21,16 +22,11 @@ namespace nonleague.web.Controllers
             return View(model);
         }
         
-        public IActionResult Season()
-        {
-            var model = _seasonService.GetSeason(); 
-            
-            return View(model);
-        }
-        
+        [Route("[action]")]
         public IActionResult Error()
         {
             return View();
         }
+        
     }
 }

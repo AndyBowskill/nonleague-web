@@ -10,6 +10,7 @@ namespace nonleague.web.Controllers
             
             return View();
         }
+        
         public IActionResult Error()
         {
             return View();

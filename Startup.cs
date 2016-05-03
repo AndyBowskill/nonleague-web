@@ -55,21 +55,21 @@ namespace nonleague.web
             app.UseStaticFiles();
 
             app.UseMvc(routes =>
-            {
+            {   
                 //Default route
-                routes.MapRoute(
-                    name: "fixture",
-                    template: "{controller=Fixture}/{action=Index}/{id?}");
+                //routes.MapRoute(
+                //    name: "fixture",
+                //    template: "{controller=Fixture}/{action=Index}");
                     
                 //League tables    
                 routes.MapRoute(
                     name: "table",
-                    template: "{controller=Table}/{action=Index}/{id?}");
+                    template: "{controller}/{action=Index}");
                     
                 //About
                 routes.MapRoute(
                     name: "about",
-                    template: "{controller=About}/{action=Index}");
+                    template: "{controller}/{action=Index}");
             });
         }
 

@@ -8,7 +8,7 @@
 <div class="list-group">
 @foreach(var league in Model)
 {
-  <a asp-controller="Fixture" asp-action="Index" asp-route-id=@league.CompetitionID class="list-group-item">
+  <a asp-controller="Season" asp-action="Index" asp-route-id=@league.CompetitionID class="list-group-item">
     <h4 class="list-group-item-heading">@league.Name</h4>
     <p class="list-group-item-text">@league.Division</p>
     <p class="list-group-item-text">@league.Sponsor</p>
