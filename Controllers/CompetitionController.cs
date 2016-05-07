@@ -3,18 +3,19 @@ using nonleague.web.Services;
 
 namespace nonleague.web.Controllers
 {
-    [Route("Fixture/Competition/{compID:int}/Season/{monthID:int}")]
-    public class FixtureController : Controller
+    [Route("Fixture/[controller]")]
+    public class CompetitionController : Controller
     {
         private readonly ILeagueService _leagueService;
         
-        public FixtureController(ILeagueService leagueService)
+        public CompetitionController(ILeagueService leagueService)
         {
             _leagueService = leagueService;
         }
         
         [Route("")]
-        public IActionResult Index()
+        [Route("/")]
+        public IActionResult Fixture()
         {
             var model = _leagueService.GetAll(); 
 

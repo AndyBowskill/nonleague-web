@@ -3,7 +3,7 @@ using nonleague.web.Services;
 
 namespace nonleague.web.Controllers
 {
-    [Route("Fixture/[controller]/{ID:int}")]
+    [Route("Fixture/Competition/{compID:int}/[controller]")]
     public class SeasonController : Controller
     {
         private readonly ISeasonService _seasonService;
@@ -17,7 +17,7 @@ namespace nonleague.web.Controllers
         public IActionResult Index()
         {
             var model = _seasonService.GetSeason(); 
-            
+
             return View(model);
         }
         
@@ -28,9 +28,9 @@ namespace nonleague.web.Controllers
         }
         
         [Route("[action]")]
-        public string ID(int ID)
+        public string ID(int compID)
         {
-            return "ID: " + ID;
+            return "ID: " + compID;
         }
     }
 }

@@ -1,17 +1,6 @@
-@model IEnumerable<nonleague.web.Entities.League>
+@*--@model IEnumerable<nonleague.web.Entities.Month>--*@
 @{
     ViewData["Title"] = "Non League";
 }
 
-<h3>@ViewData["Message"]</h3>
-
-<div class="list-group">
-@foreach(var league in Model)
-{
-  <a asp-controller="Season" asp-action="Index" asp-route-id=@league.CompetitionID class="list-group-item">
-    <h4 class="list-group-item-heading">@league.Name</h4>
-    <p class="list-group-item-text">@league.Division</p>
-    <p class="list-group-item-text">@league.Sponsor</p>
-  </a>
-}    
-</div>
+<p>Fixtures / results</p>
