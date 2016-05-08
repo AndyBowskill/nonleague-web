@@ -6,6 +6,7 @@ namespace nonleague.web.Services
     public interface ILeagueService
     {
         IEnumerable<League> GetAll();
+        string GetDescription(int competitionID);
     }
     
 }

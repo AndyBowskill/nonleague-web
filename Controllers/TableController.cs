@@ -3,7 +3,6 @@ using nonleague.web.Services;
 
 namespace nonleague.web.Controllers
 {
-    [Route("Table/Competition/{compID:int}/Season/{monthID:int}")]
     public class TableController : Controller
     {
         private readonly ILeagueService _leagueService;
@@ -13,17 +12,12 @@ namespace nonleague.web.Controllers
             _leagueService = leagueService;
         }
         
-        [Route("")]
-        public IActionResult Index()
+        [Route("Table/Competition/{compID:int}/[controller]")]
+        public IActionResult Index(int compID)
         {
-            var model = _leagueService.GetAll(); 
+            //To do - create/use a view model
+            ViewData["Heading"] = _leagueService.GetDescription(compID);
 
-            return View(model);
-        }
-        
-        [Route("[action]")]
-        public IActionResult Error()
-        {
             return View();
         }
         

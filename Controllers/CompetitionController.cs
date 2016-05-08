@@ -3,7 +3,7 @@ using nonleague.web.Services;
 
 namespace nonleague.web.Controllers
 {
-    [Route("Fixture/[controller]")]
+    
     public class CompetitionController : Controller
     {
         private readonly ILeagueService _leagueService;
@@ -13,7 +13,7 @@ namespace nonleague.web.Controllers
             _leagueService = leagueService;
         }
         
-        [Route("")]
+        [Route("Fixture/[controller]")]
         [Route("/")]
         public IActionResult Fixture()
         {
@@ -22,10 +22,12 @@ namespace nonleague.web.Controllers
             return View(model);
         }
         
-        [Route("[action]")]
-        public IActionResult Error()
+        [Route("Table/[controller]")]
+        public IActionResult Table()
         {
-            return View();
+            var model = _leagueService.GetAll(); 
+
+            return View(model);
         }
         
     }

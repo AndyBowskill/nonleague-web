@@ -8,11 +8,13 @@ namespace nonleague.web.Services
 {
     public class LeagueXMLService : ILeagueService
     {
+        private List<League> leagueList;
+         
         public IEnumerable<League> GetAll()
         {
             var leagues = from element in XDocument.Load("AppData/leagues.xml").Descendants("league") select element;
             
-            List<League> leagueList = new List<League>();
+            leagueList = new List<League>();
             
             foreach (var item in leagues)
             {
@@ -25,8 +27,21 @@ namespace nonleague.web.Services
                 });
             }
             
-            return leagueList; 
+            return leagueList;
             
+        }
+        
+        public string GetDescription(int competitionID)
+        {
+            if (leagueList == null)
+            {
+                leagueList = GetAll().ToList();
+            }
+            
+            League league = leagueList.First(item => item.CompetitionID == competitionID);            
+            
+            return string.Format("{0} - {1}", league.Name, league.Division);
+
         }
     }
     
