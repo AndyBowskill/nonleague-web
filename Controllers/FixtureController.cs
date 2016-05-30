@@ -1,4 +1,4 @@
-using Microsoft.AspNet.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using nonleague.web.Services;
 
 namespace nonleague.web.Controllers
