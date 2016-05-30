@@ -33,6 +33,8 @@ namespace nonleague.web.Services
         
         public string GetDescription(int competitionID)
         {
+            // ToDo - Prevent exception if user uses URL to ask for a competition that doesn't exist (e.g. 1,2,3,etc.)
+            
             if (leagueList == null)
             {
                 leagueList = GetAll().ToList();

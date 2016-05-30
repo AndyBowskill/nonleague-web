@@ -30,6 +30,7 @@ namespace nonleague.web
             // Add application services
             services.AddScoped<ILeagueService, LeagueXMLService>();
             services.AddScoped<ISeasonService, CurrentSeasonService>();
+            services.AddScoped<ITableService, LeagueTableService>();
 
         }
 
