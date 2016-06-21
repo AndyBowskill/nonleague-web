@@ -1,10 +1,11 @@
 using System.Threading.Tasks;
+using nonleague.web.Entities;
 
 namespace nonleague.web.Services
 {
     public interface ITableService
     {
-        Task<string> GetTable(int competitionID);
+        Task<LeagueTableRoot> GetTable(int competitionID);
 
     }
     

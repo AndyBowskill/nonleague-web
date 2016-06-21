@@ -3,16 +3,17 @@ using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using nonleague.web.Entities;
 
 namespace nonleague.web.Services
 {
     public class LeagueTableService : ITableService
     {
-        public async Task<string> GetTable(int competitionID)
+        public async Task<LeagueTableRoot> GetTable(int competitionID)
         {
-            string responseJson;
-            
-            responseJson = "";
+            string responseJson = "";
+            LeagueTableRoot root = null;
             
             using (var client = new HttpClient())
             {
@@ -25,6 +26,7 @@ namespace nonleague.web.Services
                 if (response.IsSuccessStatusCode)
                 {
                     responseJson = await response.Content.ReadAsStringAsync();
+                    root = JsonConvert.DeserializeObject<LeagueTableRoot>(responseJson);
                 }
                 
                 //var httpClient = new HttpClient();
@@ -33,8 +35,9 @@ namespace nonleague.web.Services
                 //var result = await httpClient.GetStringAsync("http://www.footballwebpages.co.uk/league.json?comp=13");
             }
             
-            return responseJson;
+            return root;
             
         }
     }
+    
 }
