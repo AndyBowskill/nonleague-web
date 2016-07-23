@@ -5,7 +5,6 @@ namespace nonleague.web.Entities
     public class Team
     {
         public string position { get; set; }
-        public string outcome { get; set; }
         public string name { get; set; }
         public string played { get; set; }
         public string won { get; set; }

@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using nonleague.web.Entities;
 using nonleague.web.Services;
 
 namespace nonleague.web.Controllers
@@ -20,10 +21,14 @@ namespace nonleague.web.Controllers
         {
             //To do - create/use a view model
             ViewData["Heading"] = _leagueService.GetDescription(compID);
-            
-            ViewData["Test"] = await _leagueTableService.GetTable(compID);
 
-            return View();
+            //ToDo - Return league table node from service
+            LeagueTableRoot root = await _leagueTableService.GetTable(compID);
+            var model = root.leagueTable;
+
+            //ViewData["Test"] = await _leagueTableService.GetTable(compID);
+
+            return View(model);
         }
         
     }
