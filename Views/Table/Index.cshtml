@@ -18,17 +18,17 @@
         <th class="text-center">Pts.</th>
 
     </tr>
-@foreach(var team in Model.team)
+@foreach(var team in Model.Team)
 {
     <tr>
-        <td>@team.position</td>
-        <td>@team.name</td>
-        <td class="text-center">@team.played</td>
-        <td class="text-center">@team.won</td>
-        <td class="text-center">@team.drawn</td>
-        <td class="text-center">@team.lost</td>
-        <td class="text-center">@team.goalDifference</td>
-        <td class="text-center">@team.points</td>
+        <td>@team.Position</td>
+        <td>@team.Name</td>
+        <td class="text-center">@team.Played</td>
+        <td class="text-center">@team.Won</td>
+        <td class="text-center">@team.Drawn</td>
+        <td class="text-center">@team.Lost</td>
+        <td class="text-center">@team.GoalDifference</td>
+        <td class="text-center">@team.Points</td>
     </tr>
 }
 </table>

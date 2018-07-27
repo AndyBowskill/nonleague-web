@@ -4,28 +4,28 @@ namespace nonleague.web.Entities
 {
     public class Team
     {
-        public string position { get; set; }
-        public string name { get; set; }
-        public string played { get; set; }
-        public string won { get; set; }
-        public string drawn { get; set; }
-        public string lost { get; set; }
-        public string @for { get; set; }
-        public string against { get; set; }
-        public string goalDifference { get; set; }
-        public string points { get; set; }
+        public string Position { get; set; }
+        public string Name { get; set; }
+        public string Played { get; set; }
+        public string Won { get; set; }
+        public string Drawn { get; set; }
+        public string Lost { get; set; }
+        public string For { get; set; }
+        public string Against { get; set; }
+        public string GoalDifference { get; set; }
+        public string Points { get; set; }
     }
 
     public class LeagueTable
     {
-        public string competition { get; set; }
-        public string description { get; set; }
-        public List<Team> team { get; set; }
+        public string Competition { get; set; }
+        public string Description { get; set; }
+        public List<Team> Team { get; set; }
     }
 
     public class LeagueTableRoot
     {
-        public LeagueTable leagueTable { get; set; }
+        public LeagueTable LeagueTable { get; set; }
     }
     
 }

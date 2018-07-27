@@ -13,9 +13,9 @@ namespace nonleague.web.Controllers
             _leagueService = leagueService;
         }
         
-        [Route("Fixture/[controller]")]
+        [Route("Match/[controller]")]
         [Route("/")]
-        public IActionResult Fixture()
+        public IActionResult Match()
         {
             var model = _leagueService.GetAll(); 
 

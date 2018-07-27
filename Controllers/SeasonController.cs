@@ -14,12 +14,13 @@ namespace nonleague.web.Controllers
             _leagueService = leagueService;
         }
         
-        [Route("Fixture/Competition/{compID:int}/[controller]")]
+        [Route("Match/Competition/{compID:int}/[controller]")]
         public IActionResult Index(int compID)
         {
             //To do - create/use a view model
             var model = _seasonService.GetSeason();
             ViewData["Heading"] = _leagueService.GetDescription(compID);
+            ViewData["CompID"] = compID;
 
             return View(model);
         }

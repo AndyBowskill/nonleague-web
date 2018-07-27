@@ -1,0 +1,54 @@
+@model nonleague.web.Entities.MatchesCompetition
+@{
+    ViewData["Title"] = "Non League";
+    string validDate = null;
+}
+
+<h3>Fixtures / Results</h3>
+<h4>@ViewData["Heading"]</h4>
+<hr />
+<div class="container">
+@foreach(var match in Model.Match)
+{
+    @if(validDate != @match.Date)
+    {
+        <h4>@match.Date</h4>
+        validDate = @match.Date;
+    }
+
+    <div class="row">
+        
+        <div class="col-xs-5 right-align">
+            <p class="no-gutters-vertical">@match.HomeTeamName</p>
+        </div>
+        
+        <div class="col-xs-2 center-align bold no-gutters-horizontal">
+            @if (@match.Status.Contains("Kick off"))
+            {               
+                <p class="no-gutters-vertical">@match.Time</p>
+            }
+            else
+            {
+                <p class="no-gutters-vertical">@match.HomeTeamScore - @match.AwayTeamScore</p>
+            }
+        </div>
+        
+        <div class="col-xs-5 left-align">
+            <p class="no-gutters-vertical">@match.AwayTeamName</p>
+        </div>
+
+    </div>
+    <div class="row">
+
+        <div class="col-xs-2">
+        </div>
+        <div class="col-xs-8 ">
+            <hr class="no-gutters-vertical" />
+        </div>
+        <div class="col-xs-2">
+        </div>        
+
+    </div>
+
+}
+</div>

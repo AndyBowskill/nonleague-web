@@ -24,7 +24,7 @@ namespace nonleague.web.Controllers
 
             //ToDo - Return league table node from service
             LeagueTableRoot root = await _leagueTableService.GetTable(compID);
-            var model = root.leagueTable;
+            var model = root.LeagueTable;
 
             //ViewData["Test"] = await _leagueTableService.GetTable(compID);
 
