@@ -1,16 +1,16 @@
-@model IEnumerable<nonleague.web.Entities.Month>
+@model nonleague.web.Entities.LeagueSeason
 @{
     ViewData["Title"] = "Non League";
 }
 
 <h3>Fixtures / Results</h3>
-<h4>@ViewData["Heading"]</h4>
+<h4>@Model.Description</h4>
 <hr />
 
 <div class="list-group">
-@foreach(var month in Model)
+@foreach(var month in Model.Season)
 {
-  <a asp-controller="Match" asp-action="Index" asp-route-compid=@ViewData["CompID"] asp-route-monthid=@month.ID class="list-group-item">
+  <a asp-controller="Match" asp-action="Index" asp-route-compid=@Model.CompetitionID asp-route-monthid=@month.ID class="list-group-item">
     <h4 class="list-group-item-heading">@month.Name</h4>
   </a>
 }

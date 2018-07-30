@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using nonleague.web.Entities;
 using nonleague.web.Services;
 
 namespace nonleague.web.Controllers
@@ -17,10 +18,10 @@ namespace nonleague.web.Controllers
         [Route("Match/Competition/{compID:int}/[controller]")]
         public IActionResult Index(int compID)
         {
-            //To do - create/use a view model
-            var model = _seasonService.GetSeason();
-            ViewData["Heading"] = _leagueService.GetDescription(compID);
-            ViewData["CompID"] = compID;
+            var model = new LeagueSeason();
+            model.CompetitionID = compID;
+            model.Description = _leagueService.GetDescription(compID);
+            model.Season = _seasonService.GetSeason();
 
             return View(model);
         }

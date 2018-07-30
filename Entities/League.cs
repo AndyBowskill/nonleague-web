@@ -6,8 +6,6 @@ namespace nonleague.web.Entities
         public string Division { get; set; }
         public string Sponsor { get; set; }
         public int Step { get; set; }  
-        public int CompetitionID { get; set; }
-    }
-
-    
+        public int CompetitionID { get; set; } 
+    }   
 }
