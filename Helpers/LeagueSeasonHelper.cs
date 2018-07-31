@@ -1,8 +1,9 @@
 using System.Collections.Generic;
+using nonleague.web.Entities;
 
-namespace nonleague.web.Entities
+namespace nonleague.web.Helper
 {
-    public class LeagueSeason
+    public class LeagueSeasonHelper
     {
         public int CompetitionID { get; set; }
         public string Description { get; set; }

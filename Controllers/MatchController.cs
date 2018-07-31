@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using nonleague.web.Entities;
+using nonleague.web.Helper;
 using nonleague.web.Services;
 
 namespace nonleague.web.Controllers
@@ -19,14 +20,14 @@ namespace nonleague.web.Controllers
         [Route("Match/Competition/{compID:int}/Season/{monthID:int}")]
         public async Task<IActionResult> Index(int compID, int monthID)
         {
-            //To do - create/use a view model
-            // To do - excepetion error while view Champions League
-            //ViewData["Heading"] = _leagueService.GetDescription(compID);
+            //ToDo - Return matches node from service
+            var matchesCompetitionRoot = await _matchService.GetFixturesForMonth(compID, monthID);
 
-            MatchesCompetitionRoot root = await _matchService.GetFixturesForMonth(compID, monthID);
-            var model = root.MatchesCompetition;
+            var matchesCompetitionHelper = new MatchesCompetitionHelper();
+            matchesCompetitionHelper.Description = _leagueService.GetDescription(compID);
+            matchesCompetitionHelper.MatchesCompetition = matchesCompetitionRoot.MatchesCompetition;
 
-            return View(model);
+            return View(matchesCompetitionHelper);
         }
         
     }

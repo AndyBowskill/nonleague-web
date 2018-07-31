@@ -1,14 +1,14 @@
-@model nonleague.web.Entities.MatchesCompetition
+@model nonleague.web.Helper.MatchesCompetitionHelper
 @{
     ViewData["Title"] = "Non League";
     string validDate = null;
 }
 
 <h3>Fixtures / Results</h3>
-<h4>@ViewData["Heading"]</h4>
+<h4>@Model.Description</h4>
 <hr />
 <div class="container">
-@foreach(var match in Model.Match)
+@foreach(var match in Model.MatchesCompetition.Match)
 {
     @if(validDate != @match.Date)
     {

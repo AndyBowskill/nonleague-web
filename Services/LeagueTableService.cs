@@ -26,16 +26,7 @@ namespace nonleague.web.Services
                 {
                     responseJson = await response.Content.ReadAsStringAsync();
                     root = JsonConvert.DeserializeObject<LeagueTableRoot>(responseJson);
-                    
-
-                    //var root = JsonConvert.DeserializeObject<List<RootObject>>(json);
-                    ///var articles = root.Select(m => new Article { Name = m.title, ImagePath = m.images.poster, id = m._id, Year = m.year });
                 }
-                
-                //var httpClient = new HttpClient();
-                //httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                
-                //var result = await httpClient.GetStringAsync("http://www.footballwebpages.co.uk/league.json?comp=13");
             }
             
             return root;

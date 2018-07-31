@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using nonleague.web.Entities;
+using nonleague.web.Helper;
 using nonleague.web.Services;
 
 namespace nonleague.web.Controllers
@@ -19,16 +20,14 @@ namespace nonleague.web.Controllers
         [Route("Table/Competition/{compID:int}/[controller]")]
         public async Task<IActionResult> Index(int compID)
         {
-            //To do - create/use a view model
-            ViewData["Heading"] = _leagueService.GetDescription(compID);
-
             //ToDo - Return league table node from service
-            LeagueTableRoot root = await _leagueTableService.GetTable(compID);
-            var model = root.LeagueTable;
+            var leagueTableRoot = await _leagueTableService.GetTable(compID);
 
-            //ViewData["Test"] = await _leagueTableService.GetTable(compID);
+            var leagueTableHelper = new LeagueTableHelper();
+            leagueTableHelper.Description = _leagueService.GetDescription(compID);
+            leagueTableHelper.LeagueTable = leagueTableRoot.LeagueTable;
 
-            return View(model);
+            return View(leagueTableHelper);
         }
         
     }
