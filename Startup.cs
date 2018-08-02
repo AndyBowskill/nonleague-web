@@ -41,27 +41,17 @@ namespace nonleague.web
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            // Todo - remove for production
-            app.UseDeveloperExceptionPage();
-
-            //if (env.IsDevelopment())
-            //{
-            //    app.UseDeveloperExceptionPage();
-            //}
-            //else
-            //{
-            //    app.UseExceptionHandler("/Home/Error");
-            //}
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+            }
 
             app.UseStaticFiles();
-
-            app.UseMvc(routes =>
-            {                       
-                //About
-                routes.MapRoute(
-                    name: "about",
-                    template: "{controller}/{action=Index}");
-            });
+            app.UseMvcWithDefaultRoute();
         }
     }
 }
